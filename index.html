@@ -1,27 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IA Decide Seu Futuro</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEXUS // Seu Futuro</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
+    <div class="particles"></div>
 
-<h1>🤖 IA SUPREMA</h1>
+    <main class="container">
 
-<p id="texto">
-Ano 2095.<br>
-Uma Inteligência Artificial analisa sua personalidade e decide seu futuro.
-</p>
+        <section id="inicio" class="tela ativa">
 
-<button id="botao">Iniciar Análise</button>
+            <div class="logo">
+                NEXUS
+            </div>
 
-</div>
+            <p class="ano">ANO 2147 // PROTOCOLO 07</p>
 
-<script src="script.js"></script>
+            <h1>
+                SEU FUTURO<br>
+                <span>FOI CALCULADO.</span>
+            </h1>
+
+            <p class="descricao">
+                Uma inteligência artificial capaz de analisar bilhões de
+                possibilidades despertou.
+                Agora ela precisa decidir qual será o seu destino.
+            </p>
+
+            <button onclick="iniciarSistema()">
+                INICIAR CONEXÃO
+            </button>
+
+        </section>
+
+
+        <section id="sistema" class="tela">
+
+            <div class="topo">
+
+                <div>
+                    <span class="mini">NEXUS SYSTEM</span>
+                    <h2 id="nomeJogador">AGENTE DESCONHECIDO</h2>
+                </div>
+
+                <div class="nivel">
+                    NÍVEL <strong id="nivel">1</strong>
+                </div>
+
+            </div>
+
+
+            <div class="terminal">
+
+                <p class="ia">
+                    > CONEXÃO ESTABELECIDA...
+                </p>
+
+                <p class="ia">
+                    > ANALISANDO PADRÕES HUMANOS...
+                </p>
+
+                <p class="ia">
+                    > CALCULANDO POSSIBILIDADES...
+                </p>
+
+                <p id="mensagemIA" class="destaque">
+                    O sistema está aguardando uma decisão.
+                </p>
+
+            </div>
+
+
+            <div class="status">
+
+                <h3>STATUS DO AGENTE</h3>
+
+                <div class="status-grid">
+
+                    <div class="atributo">
+                        <span>INTELIGÊNCIA</span>
+                        <strong id="inteligencia">10</strong>
+                    </div>
+
+                    <div class="atributo">
+                        <span>CORAGEM</span>
+                        <strong id="coragem">10</strong>
+                    </div>
+
+                    <div class="atributo">
+                        <span>CRIATIVIDADE</span>
+                        <strong id="criatividade">10</strong>
+                    </div>
+
+                    <div class="atributo">
+                        <span>DETERMINAÇÃO</span>
+                        <strong id="determinacao">10</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="missao" class="missao">
+
+                <span class="tag">NOVA MISSÃO</span>
+
+                <h2 id="tituloMissao">
+                    O primeiro despertar
+                </h2>
+
+                <p id="textoMissao">
+                    A NEXUS encontrou três possíveis caminhos para você.
+                    Escolha com cuidado.
+                </p>
+
+                <div id="opcoes" class="opcoes">
+
+                </div>
+
+            </div>
+
+
+            <div class="resultado" id="resultado">
+
+                <h2 id="tituloResultado"></h2>
+
+                <p id="textoResultado"></p>
+
+                <button onclick="proximaMissao()">
+                    CONTINUAR
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section id="final" class="tela">
+
+            <div class="final-card">
+
+                <span class="mini">NEXUS // RESULTADO FINAL</span>
+
+                <h1 id="classeFinal">
+                    DESTINO DESCONHECIDO
+                </h1>
+
+                <p id="descricaoFinal"></p>
+
+                <div class="pontuacao">
+
+                    <div>
+                        <span>NÍVEL</span>
+                        <strong id="nivelFinal">1</strong>
+                    </div>
+
+                    <div>
+                        <span>PONTOS</span>
+                        <strong id="pontosFinal">0</strong>
+                    </div>
+
+                </div>
+
+                <p class="frase-final">
+                    "O futuro não é encontrado.<br>
+                    Ele é construído."
+                </p>
+
+                <button onclick="reiniciar()">
+                    REINICIAR SIMULAÇÃO
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
