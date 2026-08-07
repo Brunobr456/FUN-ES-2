@@ -1,33 +1,422 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    background: #05060b;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Fundo */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0, 200, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 255, 0.04) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(0, 180, 255, 0.12),
+        transparent 45%);
+
+    z-index: -1;
+}
+
+
+/* Container */
+
 .container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+
+/* Telas */
+
+.tela {
+    display: none;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tela.ativa {
+    display: flex;
+}
+
+
+/* Tela inicial */
+
+#inicio {
     text-align: center;
 }
 
-h1 {
-    color: #00ff99;
-    margin-bottom: 20px;
+.logo {
+    color: #00d9ff;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 10px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 10px #00d9ff,
+        0 0 30px #0077ff;
 }
 
+.ano {
+    color: #60788c;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 85px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+}
+
+h1 span {
+    color: #00d9ff;
+    text-shadow: 0 0 25px #0077ff;
+}
+
+.descricao {
+    max-width: 600px;
+    margin: 30px auto;
+
+    color: #9caeba;
+    line-height: 1.7;
+}
+
+
+/* Botões */
+
 button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    background: #00ff99;
-    color: #121212;
-    font-size: 16px;
+    border: 1px solid #00d9ff;
+    background: rgba(0, 217, 255, 0.08);
+
+    color: #00d9ff;
+
+    padding: 15px 30px;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
     cursor: pointer;
+
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #00cc7a;
+    background: #00d9ff;
+    color: #02040a;
+
+    box-shadow:
+        0 0 15px #00d9ff,
+        0 0 40px rgba(0, 217, 255, 0.5);
+
+    transform: translateY(-3px);
+}
+
+
+/* Sistema */
+
+#sistema {
+    align-items: stretch;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #16313c;
+    padding-bottom: 20px;
+}
+
+.mini {
+    font-size: 11px;
+    color: #00d9ff;
+    letter-spacing: 3px;
+}
+
+.topo h2 {
+    margin-top: 5px;
+}
+
+.nivel {
+    border: 1px solid #173945;
+    padding: 12px 20px;
+    color: #758e9d;
+}
+
+.nivel strong {
+    color: #00d9ff;
+    font-size: 22px;
+}
+
+
+/* Terminal */
+
+.terminal {
+    margin-top: 30px;
+
+    background: rgba(0, 20, 30, 0.6);
+    border: 1px solid #12323d;
+
+    padding: 25px;
+
+    font-family: monospace;
+}
+
+.ia {
+    color: #557784;
+    margin-bottom: 8px;
+}
+
+.destaque {
+    color: #00d9ff;
+    margin-top: 20px;
+}
+
+
+/* Status */
+
+.status {
+    margin-top: 30px;
+}
+
+.status h3 {
+    color: #66808e;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.atributo {
+    border: 1px solid #15323d;
+    padding: 18px;
+    background: rgba(255,255,255,0.02);
+}
+
+.atributo span {
+    display: block;
+    font-size: 10px;
+    color: #66808e;
+    margin-bottom: 8px;
+}
+
+.atributo strong {
+    font-size: 25px;
+    color: #00d9ff;
+}
+
+
+/* Missão */
+
+.missao {
+    margin-top: 30px;
+
+    border: 1px solid #22404b;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 255, 0.06),
+            transparent
+        );
+}
+
+.tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #00d9ff;
+}
+
+.missao h2 {
+    margin: 12px 0;
+    font-size: 30px;
+}
+
+.missao p {
+    color: #91a6b0;
+    line-height: 1.6;
+}
+
+.opcoes {
+    display: grid;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.opcao {
+    width: 100%;
+    text-align: left;
+
+    border: 1px solid #183842;
+
+    background: rgba(0,0,0,0.25);
+
+    color: white;
+
+    padding: 18px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.opcao:hover {
+    border-color: #00d9ff;
+    background: rgba(0,217,255,0.08);
+}
+
+.opcao strong {
+    display: block;
+    color: #00d9ff;
+    margin-bottom: 5px;
+}
+
+.opcao small {
+    color: #718792;
+}
+
+
+/* Resultado */
+
+.resultado {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    border-left: 3px solid #00d9ff;
+
+    background: rgba(0,217,255,0.05);
+}
+
+.resultado.mostrar {
+    display: block;
+}
+
+.resultado h2 {
+    color: #00d9ff;
+    margin-bottom: 10px;
+}
+
+.resultado p {
+    color: #a5b6bd;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* Final */
+
+#final {
+    text-align: center;
+}
+
+.final-card {
+    max-width: 700px;
+    padding: 50px 30px;
+
+    border: 1px solid #1d4350;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,217,255,0.12),
+            transparent 60%
+        );
+}
+
+.final-card h1 {
+    margin: 25px 0;
+    color: #00d9ff;
+    text-shadow: 0 0 30px #0077ff;
+}
+
+.final-card > p {
+    color: #9bb0ba;
+    line-height: 1.7;
+}
+
+.pontuacao {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+
+    margin: 35px 0;
+}
+
+.pontuacao span {
+    display: block;
+    font-size: 10px;
+    color: #627c88;
+    letter-spacing: 2px;
+}
+
+.pontuacao strong {
+    font-size: 35px;
+    color: white;
+}
+
+.frase-final {
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 650px) {
+
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .topo {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .pontuacao {
+        gap: 30px;
+    }
+
 }
